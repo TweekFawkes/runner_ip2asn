@@ -1,0 +1,18 @@
+runner:
+  name: IP to ASN Lookup
+  description: Looks up IP address to ASN and BGP information using Team Cymru's WHOIS service.
+  version: 0.0.1
+
+build:
+  commands: |
+    echo "START: Building the runner"
+    python3 -m pip install -U -r requirements.txt
+    echo "END: Building the runner"
+
+webform:
+  - name: ip_address
+    prompt: IP Address
+    type: text
+
+launch:
+  command: app.py ${ip_address}
